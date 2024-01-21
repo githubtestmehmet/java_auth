@@ -1,0 +1,13 @@
+spring:
+  profiles:
+    active: dev
+  data:
+    mongodb:
+      uri: ${MONGODB_URI}
+      database: ${MONGODB_DB}
+  application:
+    jwt:
+      secret-key: ${SECRET_KEY}
+logging:
+  level:
+    org.springframework.security: DEBUG
