@@ -1,4 +1,4 @@
-package com.theatech.tevkil.auth;
+package com.simbolmina.auth.auth;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -9,8 +9,9 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class AuthenticationRequest {
+public class RegisterRequest {
 
     private String email;
+
     private String password;
 }

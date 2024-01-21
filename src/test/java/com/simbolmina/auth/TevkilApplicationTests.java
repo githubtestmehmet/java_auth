@@ -1,4 +1,4 @@
-package com.theatech.tevkil;
+package com.simbolmina.auth;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

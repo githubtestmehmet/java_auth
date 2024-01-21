@@ -1,4 +1,4 @@
-package com.theatech.tevkil.auth;
+package com.simbolmina.auth.auth;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;

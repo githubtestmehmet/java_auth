@@ -1,4 +1,4 @@
-package com.theatech.tevkil.user;
+package com.simbolmina.auth.user;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;

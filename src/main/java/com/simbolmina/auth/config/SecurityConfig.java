@@ -1,6 +1,5 @@
-package com.theatech.tevkil.config;
+package com.simbolmina.auth.config;
 
-import jakarta.servlet.Filter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

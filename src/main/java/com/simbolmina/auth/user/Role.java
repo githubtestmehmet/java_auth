@@ -1,4 +1,4 @@
-package com.theatech.tevkil.user;
+package com.simbolmina.auth.user;
 
 public enum Role {
     USER,

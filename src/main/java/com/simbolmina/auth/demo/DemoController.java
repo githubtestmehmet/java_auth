@@ -1,4 +1,4 @@
-package com.theatech.tevkil.demo;
+package com.simbolmina.auth.demo;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;

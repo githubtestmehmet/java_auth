@@ -1,4 +1,4 @@
-package com.theatech.tevkil.config;
+package com.simbolmina.auth.config;
 
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;

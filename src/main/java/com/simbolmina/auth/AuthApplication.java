@@ -1,13 +1,13 @@
-package com.theatech.tevkil;
+package com.simbolmina.auth;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class TevkilApplication {
+public class AuthApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(TevkilApplication.class, args);
+		SpringApplication.run(AuthApplication.class, args);
 	}
 
 }

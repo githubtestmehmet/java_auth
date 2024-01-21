@@ -1,6 +1,5 @@
-package com.theatech.tevkil.user;
+package com.simbolmina.auth.user;
 
-import com.theatech.tevkil.user.User;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
 import java.util.Optional;

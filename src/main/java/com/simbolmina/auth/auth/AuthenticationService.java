@@ -1,9 +1,9 @@
-package com.theatech.tevkil.auth;
+package com.simbolmina.auth.auth;
 
-import com.theatech.tevkil.config.JwtService;
-import com.theatech.tevkil.user.Role;
-import com.theatech.tevkil.user.User;
-import com.theatech.tevkil.user.UserRepository;
+import com.simbolmina.auth.config.JwtService;
+import com.simbolmina.auth.user.Role;
+import com.simbolmina.auth.user.User;
+import com.simbolmina.auth.user.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;

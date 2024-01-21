@@ -1,6 +1,6 @@
-package com.theatech.tevkil.config;
+package com.simbolmina.auth.config;
 
-import com.theatech.tevkil.user.UserRepository;
+import com.simbolmina.auth.user.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
