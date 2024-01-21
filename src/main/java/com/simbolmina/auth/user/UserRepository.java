@@ -1,5 +1,6 @@
 package com.simbolmina.auth.user;
 
+import com.simbolmina.auth.user.entity.User;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
 import java.util.Optional;

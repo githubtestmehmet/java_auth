@@ -1,4 +1,4 @@
-package com.simbolmina.auth.user;
+package com.simbolmina.auth.user.entity;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -29,6 +29,8 @@ public class User implements UserDetails {
     private String password;
 
     private Role role;
+
+    private String refreshToken;
 
     @Override
     public String getUsername() {

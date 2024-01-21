@@ -1,4 +1,4 @@
-package com.simbolmina.auth.user;
+package com.simbolmina.auth.user.entity;
 
 public enum Role {
     USER,
