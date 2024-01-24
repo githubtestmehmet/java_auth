@@ -24,14 +24,16 @@ public class JwtService {
     @Value("${spring.application.jwt.refresh-secret}")
     private String REFRESH_SECRET_KEY;
 
-    public String extractEmail(String token) {
-        return extractClaim(token, Claims::getSubject);
+    public String extractEmail(String token, boolean isAccessToken) {
+        return extractClaim(token, Claims::getSubject, isAccessToken);
     }
 
-    public <T> T extractClaim(String token, Function<Claims, T> claimsResolver) {
-        final Claims claims = extractAllClaims(token);
+
+    public <T> T extractClaim(String token, Function<Claims, T> claimsResolver, boolean isAccessToken) {
+        final Claims claims = extractAllClaims(token, isAccessToken);
         return claimsResolver.apply(claims);
     }
+
 
     public String generateAccessToken(UserDetails userDetails){
         return generateAccessToken(new HashMap<>(), userDetails);
@@ -72,31 +74,33 @@ public class JwtService {
 
 
     public boolean isAccessTokenValid(String token, UserDetails userDetails) {
-        final String email = extractEmail(token);
-        return email.equals(userDetails.getUsername()) && !isTokenExpired(token);
+        final String email = extractEmail(token, true); // true for access token
+        return email.equals(userDetails.getUsername()) && isTokenNotExpired(token, true);
     }
 
     public boolean isRefreshTokenValid(String token, UserDetails userDetails) {
-        final String email = extractEmail(token);
-        return email.equals(userDetails.getUsername()) && !isTokenExpired(token);
+        final String email = extractEmail(token, false); // false for refresh token
+        return email.equals(userDetails.getUsername()) && isTokenNotExpired(token, false);
     }
 
-    private boolean isTokenExpired(String token) {
-        return extractExpiration(token).before(new Date());
+
+    private boolean isTokenNotExpired(String token, boolean isAccessToken) {
+        return extractExpiration(token, isAccessToken).after(new Date());
     }
 
-    private Date extractExpiration(String token) {
-        return extractClaim(token, Claims::getExpiration);
+    private Date extractExpiration(String token, boolean isAccessToken) {
+        return extractClaim(token, Claims::getExpiration, isAccessToken);
     }
 
-    private Claims extractAllClaims(String token) {
-        System.out.println("token in extrack all claims " + token);
+    public Claims extractAllClaims(String token, boolean isAccessToken) {
+        Key signingKey = isAccessToken ? getAccessSignInKey() : getRefreshSignInKey();
         return Jwts.parserBuilder()
-                .setSigningKey(getAccessSignInKey())
+                .setSigningKey(signingKey)
                 .build()
                 .parseClaimsJws(token)
                 .getBody();
     }
+
 
     private Key getAccessSignInKey() {
         byte[] keyBytes = Decoders.BASE64.decode(ACCESS_SECRET_KEY);
